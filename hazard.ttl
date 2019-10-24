@@ -1,0 +1,93 @@
+# baseURI: http://metadata.un.org/hazard
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://www.w3.org/2002/07/owl
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix : <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hazard: <http://metadata.un.org/hazard/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://metadata.un.org/hazard>
+  a owl:Ontology ;
+  dcterms:created "2019-10-22"^^xsd:date ;
+  dcterms:creator <http://orcid.org/0000-0002-3884-3420> ;
+  dcterms:description "Demonstration of encoding UNDRR Hazard Definitions using SKOS" ;
+  dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://www.w3.org/2002/07/owl> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+.
+hazard:Bush-fire
+  a :Concept ;
+  :exactMatch <http://purl.obolibrary.org/obo/ENVO_01001290> ;
+  :prefLabel "bushfire" ;
+.
+hazard:Convective
+  a :Collection ;
+  :prefLabel "Convective-related hazards" ;
+.
+hazard:Env
+  a :Collection ;
+  :member hazard:Env-incident ;
+  :prefLabel "ENVIRONMENTAL HAZARDS" ;
+.
+hazard:Env-incident
+  a :Collection ;
+  :member hazard:Landscape-fire ;
+  :prefLabel "Environmental incidents" ;
+.
+hazard:Fire
+  a :Collection ;
+  :member hazard:Landscape-fire ;
+  :prefLabel "Fire hazards" ;
+.
+hazard:Flood
+  a :Collection ;
+  :prefLabel "Flood hazards" ;
+.
+hazard:Forest-fire
+  a :Concept ;
+  :exactMatch <http://purl.obolibrary.org/obo/ENVO_01000791> ;
+  :prefLabel "forest fire" ;
+.
+hazard:Landscape-fire
+  a :Concept ;
+  dcterms:source <http://link.to/original-definition/landscape-fire> ;
+  pav:hasCurrentVersion <http://metadata.un.org/hazard/Landscape-fire:7> ;
+  pav:previousVersion <http://metadata.un.org/hazard/Landscape-fire:6> ;
+  pav:version "7" ;
+  :altLabel "Land fire"@en ;
+  :closeMatch <http://purl.obolibrary.org/obo/ENVO_01000787> ;
+  :definition "Uncontrolled conflagration primarily in a region of non-built environment" ;
+  :narrower hazard:Bush-fire ;
+  :narrower hazard:Forest-fire ;
+  :narrower hazard:Wild-fire ;
+  :prefLabel "Feu de paysage"@fr ;
+  :prefLabel "Fuego paisaje"@es ;
+  :prefLabel "Landscape fire"@en ;
+  :prefLabel "Пейзажный огонь"@ru ;
+  :prefLabel "النار المناظر الطبيعية"@ar ;
+  :prefLabel "景观火"@zh ;
+  :related <https://sustainabledevelopment.un.org/sdg15> ;
+.
+hazard:Lithometeors
+  a :Collection ;
+  :prefLabel "Lithometeors" ;
+.
+hazard:Met-Hyd
+  a :Collection ;
+  :member hazard:Convective ;
+  :member hazard:Fire ;
+  :member hazard:Flood ;
+  :member hazard:Lithometeors ;
+  :prefLabel "METEOROLOGICAL and HYDROLOGICAL HAZARDS" ;
+.
+hazard:Wild-fire
+  a :Concept ;
+  :prefLabel "wildfire" ;
+.
